@@ -22,7 +22,13 @@ let person = new Person({
   favoriteFoods: ['Gboma', 'Ademe', 'Fried potatoes']
 }) 
 const createAndSavePerson = (done) => {
-  done(null, person.save() /*, data*/);
+   person.save((err, data) => {
+    if (err) {
+      //
+    } else { 
+      done(null,/*, data*/);
+  }
+   } ) 
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
