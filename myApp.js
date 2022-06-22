@@ -16,6 +16,7 @@ let personSchema = new mongoose.Schema({
 })
 
 Person = mongoose.model('Person', personSchema);
+
 const createAndSavePerson = (done) => {
   let person = new Person({
     name: "Alexandra Holmes",
@@ -32,7 +33,13 @@ const createAndSavePerson = (done) => {
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
+  Person.create(arrayOfPeople)
+    .then((doc) => {
+      done(null, doc);      
+    })
+    .catch((err) => {
+      console.error(err);
+    })
 };
 
 const findPeopleByName = (personName, done) => {
