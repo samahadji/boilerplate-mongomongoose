@@ -9,10 +9,10 @@ let Person;
 let personSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please provide a string value"]
+    required: true
   },
   age: Number,
-  favoriteFoods : [String],
+  favoriteFoods : [String]
 })
 
 module.exports = mongoose.model('Person', personSchema);
