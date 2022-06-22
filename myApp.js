@@ -12,7 +12,7 @@ let personSchema = new mongoose.Schema({
     required: [true, "Please provide a string value"]
   },
   age: Number,
-  favoriteFoods : Array,
+  favoriteFoods : [{type: String}],
 })
 
 module.exports = mongoose.model('Person', personSchema);
