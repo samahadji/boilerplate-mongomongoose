@@ -24,9 +24,9 @@ let person = new Person({
 const createAndSavePerson = (done) => {
    person.save((err, data) => {
     if (err) {
-      //
+      return console.error(err);
     } else { 
-      done(null,/*, data*/);
+      done(null, data);
   }
    } ) 
 };
