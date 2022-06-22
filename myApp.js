@@ -11,11 +11,11 @@ let personSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  age: Number,
+  age : Number,
   favoriteFoods : [String]
 })
 
-module.exports = mongoose.model('Person', personSchema);
+Person = mongoose.model('Person', personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
