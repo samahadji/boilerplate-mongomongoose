@@ -15,7 +15,7 @@ let personSchema = new mongoose.Schema({
   favoriteFoods : [String]
 })
 
-exports = mongoose.model('Person', personSchema);
+module.exports = mongoose.model('Person', personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
