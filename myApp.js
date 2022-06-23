@@ -70,7 +70,7 @@ const findPersonById = (personId, done) => {
 
 const findEditThenSave = (personId, done) => {
   const foodToAdd = "hamburger";
-  findPersonById(personId, (err, docs) => {
+  findById(personId, (err, docs) => {
     if (err) { 
       done (err, null)
     } else {
@@ -79,7 +79,7 @@ const findEditThenSave = (personId, done) => {
       let person = new Person({...docs, favoriteFoods: updatedFoods });
       person.save((err, data) => {
         if (err) {
-          return done (err, null);
+          done (err, null);
         } else { 
           done(null, data);
       }
