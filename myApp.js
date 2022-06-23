@@ -110,7 +110,7 @@ const removeManyPeople = (done) => {
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
-  Person.find({favoriteFoods: { $regex: `.*${foodToSearch}.*` })
+  Person.find({favoriteFoods: { $regex: `.*${foodToSearch}.*` }})
   .sort({name: 'ascending'}) // or 'asc'
   .limit(2)
   .select('-age')
