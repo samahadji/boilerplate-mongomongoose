@@ -59,29 +59,27 @@ const findOneByFood = (food, done) => {
 };
 
 const findPersonById = (personId, done) => {
-  Person.findById(personId, (err, docs) => {
+  Person.findById(personId, (err, doc) => {
     if (err) {
       done(err, null)
     } else {
-    done(null, docs);
+    done(null, doc);
   }
   })
 };
 
 const findEditThenSave = (personId, done) => {
   const foodToAdd = "hamburger";
-  findById(personId, (err, docs) => {
+  findById(personId, (err, person) => {
     if (err) { 
       done (err, null)
     } else {
-      let updatedFoods = docs.favoriteFoods.slice()
-          updatedFoods.push(foodToAdd)
-      let person = new Person({...docs, favoriteFoods: updatedFoods });
-      person.save((err, data) => {
+      person.favoriteFoods.push(foodToAdd)
+      person.save((err, updatedPerson) => {
         if (err) {
           done (err, null);
         } else { 
-          done(null, data);
+          done(null, updatedPerson);
       }
        })
     }
