@@ -102,8 +102,9 @@ const removeById = (personId, done) => {
 
 const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
-
-  done(null /*, data*/);
+  Person.Remove({name: nameToRemove}, (err, resJSON) => {
+    if (err) { done(err, null); } else { done(null, resJSON);}
+    })
 };
 
 const queryChain = (done) => {
