@@ -74,7 +74,9 @@ const findEditThenSave = (personId, done) => {
     if (err) { 
       done (err, null)
     } else {
-      let person = new Person({...docs, favoriteFoods: docs.favoriteFoods.push(foodToAdd)});
+      let updatedFoods = docs.favoriteFoods.slice()
+          updatedFoods.push(foodToAdd)
+      let person = new Person({...docs, favoriteFoods: updatedFoods });
       person.save((err, data) => {
         if (err) {
           return done (err, null);
