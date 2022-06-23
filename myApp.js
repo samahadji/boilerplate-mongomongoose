@@ -70,7 +70,7 @@ const findPersonById = (personId, done) => {
 
 const findEditThenSave = (personId, done) => {
   const foodToAdd = "hamburger";
-  findById(personId, (err, person) => {
+  Person.findById(personId, (err, person) => {
     if (err) { 
       done (err, null)
     } else {
